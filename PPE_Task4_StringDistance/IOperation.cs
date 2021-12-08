@@ -6,6 +6,6 @@ namespace Test
 {
     public interface IOperation
     {
-        public string MakeOperation(string text, int i, string pattern);   
+        public string MakeOperation(string text, string pattern);   
     }
 }
