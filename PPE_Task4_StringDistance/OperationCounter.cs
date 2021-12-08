@@ -93,9 +93,8 @@ namespace Test
             int modificationCounter = 0;
             pattern = pattern.ToLower();
             text = text.ToLower();
-                      
 
-            while (text != pattern)
+            do
             {
                 modificationCounter++;
                 string maxProfitText = "";
@@ -103,9 +102,9 @@ namespace Test
 
                 // Iterate for every operation and find the most efficient(with the highest maxProfit value) operation 
                 foreach (var operationType in allOperations)
-                {                    
-                    string tempText = operationType.MakeOperation(text, 0, pattern);
-                    int profit = CalculateProfitability(pattern, tempText);                   
+                {
+                    string tempText = operationType.MakeOperation(text, pattern);
+                    int profit = CalculateProfitability(pattern, tempText);
                     if (maxProfit < profit)
                     {
                         maxProfit = profit;
@@ -115,21 +114,24 @@ namespace Test
 
                 //Console.WriteLine("OPERATIONS: " + maxProfit + " " + maxProfitText);
                 text = maxProfitText;
-                TrimCommonPart(ref pattern, ref text);                
-                
+                TrimCommonPart(ref pattern, ref text);
+
                 // if words have different lenght stop iterating and add missing operations
                 if (pattern == string.Empty)
                 {
                     modificationCounter += text.Length;
                     return modificationCounter;
                 }
-                
+
                 if (text == string.Empty)
                 {
                     modificationCounter += pattern.Length;
                     return modificationCounter;
                 }
-            }
+
+            } 
+            while (text != pattern);
+
             return modificationCounter;
         }
 
