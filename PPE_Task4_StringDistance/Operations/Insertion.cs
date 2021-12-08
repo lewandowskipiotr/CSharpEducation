@@ -6,9 +6,9 @@ namespace Test.Operations
 {
     class Insertion : IOperation
     {
-        public string MakeOperation(string text, int i, string pattern)
+        public string MakeOperation(string text, string pattern)
         {
-            text = text.Insert(i, pattern[i].ToString());           
+            text = text.Insert(0, pattern[0].ToString());           
             return text;
         }
     }

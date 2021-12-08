@@ -6,12 +6,8 @@ namespace Test.Operations
 {
     class Deletion : IOperation
     {
-        public string MakeOperation(string text, int i, string pattern)
+        public string MakeOperation(string text, string pattern)
         {
-            if(i >= text.Length)
-            {
-                return string.Empty;
-            }
             text = text.Remove(0, 1);            
             return text;
         }

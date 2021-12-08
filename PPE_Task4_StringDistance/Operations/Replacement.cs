@@ -6,7 +6,7 @@ namespace Test.Operations
 {
     class Replacement : IOperation
     {
-        public string MakeOperation(string text, int i, string pattern)
+        public string MakeOperation(string text, string pattern)
         {
             char[] arr = text.ToCharArray();
             arr[0] = pattern[0];;
