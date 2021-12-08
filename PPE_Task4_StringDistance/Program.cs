@@ -7,8 +7,10 @@ namespace Test
         static void Main(string[] args)
         {
 
-            OperationCounter operationCounter = new OperationCounter();
-            Console.WriteLine(operationCounter.CalculateOperationsLevenshtein("Piotr Lewandowski", "Piotr Pernej"));
+            OperationCounter operationCounter = new OperationCounter(50);
+            Console.WriteLine("Operations: " + operationCounter.CalculateDistance("mice","mouse"));
+            Console.WriteLine("Operations Levenshtein: " + operationCounter.CalculateOperationsLevenshtein("mice","mouse"));
+
             Console.ReadKey();
         }
     }
