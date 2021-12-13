@@ -6,14 +6,13 @@ namespace AVLTreeProgram
     {
         static void Main(string[] args)
         {
-
             AvlTree tree = new AvlTree();
 
-            tree.Insert(10);
-            tree.Insert(20);
-            tree.Insert(30);
-            tree.Insert(40);
-            tree.Insert(50);
+            tree.Insert(12);
+            tree.Insert(24);
+            tree.Insert(32);
+            tree.Insert(48);
+            tree.Insert(78);
             tree.Insert(25);
             tree.DisplayTree();
 

@@ -4,10 +4,8 @@ using System.Text;
 
 namespace AVLTreeProgram
 {
-    class AvlTree
-    {
-        private Node root;
-
+    class AvlTree : BinarySearchTree
+    {       
         public AvlTree()
         {
             root = null;
@@ -22,18 +20,18 @@ namespace AVLTreeProgram
             }
             else if (newNode.data < nodePointer.data)
             {
-                nodePointer.LeftChild = InsertInTheRightPlaceAndBalanceTree(nodePointer.LeftChild, newNode);
+                nodePointer.LeftChild = InsertToTheRightPlace(nodePointer.LeftChild, newNode.data);
                 nodePointer = BalanceTree(nodePointer);
             }
             else if (newNode.data > nodePointer.data)
             {
-                nodePointer.RightChild = InsertInTheRightPlaceAndBalanceTree(nodePointer.RightChild, newNode);
+                nodePointer.RightChild = InsertToTheRightPlace(nodePointer.RightChild, newNode.data);
                 nodePointer = BalanceTree(nodePointer);
             }
             return nodePointer;
         }
 
-        public void Insert(int value)
+        public override void Insert(int value)
         {            
             if (root == null)
             {
@@ -118,25 +116,8 @@ namespace AVLTreeProgram
             return RotationRighRight(parent);
         }
 
-        private void DisplayAllNodes(Node nodePointer)
-        {
-            if (nodePointer != null)
-            {
-                Console.Write("({0}) ", nodePointer.data);
-                DisplayAllNodes(nodePointer.LeftChild);
-                DisplayAllNodes(nodePointer.RightChild);
-            }
-        }
 
-        public void DisplayTree()
-        {
-            if (root == null)
-            {
-                Console.WriteLine("Empty");
-                return;
-            }
-            DisplayAllNodes(root);            
-        }
+
 
 
     }
